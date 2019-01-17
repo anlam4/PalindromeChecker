@@ -16,7 +16,17 @@ public void setup()
 }
 public boolean palindrome(String word)
 {
-  //your code here
+  String[] punctuation = {" ", ".", ",", "!", ";", "?", "'", "\"",};
+  String noPunc = "";
+  for(String punc : punctuation)
+  {
+    String[] listWords = word.split(punc); //remember obj
+    for(String wrd : listWords)
+    {
+      noPunc += wrd;
+    }
+    word = noPunc;
+  }
   return false;
 }
 public String reverse(String str)
@@ -25,5 +35,3 @@ public String reverse(String str)
     //your code here
     return sNew;
 }
-
-
