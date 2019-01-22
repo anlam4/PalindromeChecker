@@ -20,18 +20,24 @@ public boolean palindrome(String word)
   String noPunc = "";
   for(String punc : punctuation)
   {
-    String[] listWords = word.split(punc); //remember obj
+    String[] listWords = word.split(punc);
     for(String wrd : listWords)
     {
       noPunc += wrd;
     }
     word = noPunc;
   }
+  word.toLowerCase();
+  if (reverse(word).equals(word)) 
+    return true;
   return false;
 }
 public String reverse(String str)
 {
     String sNew = new String();
-    //your code here
+    for(int i = str.length()-1; i >= 0; i--)
+    {
+      sNew += str.substring(i, i+1);
+    }
     return sNew;
 }
