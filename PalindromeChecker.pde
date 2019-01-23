@@ -16,7 +16,7 @@ public void setup()
 }
 public boolean palindrome(String word)
 {
-  String[] punctuation = {" ", ".", ",", "!", ";", "?", "'", "\"",};
+  String[] punctuation = {" ", ",", "'", "!", ";", "\"", "\\?", ".", ":"};
   String noPunc = "";
   for(String punc : punctuation)
   {
@@ -28,6 +28,7 @@ public boolean palindrome(String word)
     word = noPunc;
   }
   word.toLowerCase();
+//too many words stringed together
   if (reverse(word).equals(word)) 
     return true;
   return false;
