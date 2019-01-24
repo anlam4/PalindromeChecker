@@ -16,19 +16,22 @@ public void setup()
 }
 public boolean palindrome(String word)
 {
-  String[] punctuation = {" ", ",", "'", "!", ";", "\"", "\\?", ".", ":"};
-  String noPunc = "";
+  String[] punctuation = {" ", ",", "'", "!", ";", "\"", "\\?", "\\.", ":"};
   for(String punc : punctuation)
   {
-    String[] listWords = word.split(punc);
-    for(String wrd : listWords)
+    CharSequence p = punc;
+    if(word.contains(p)) 
     {
-      noPunc += wrd;
+      String noPunc = "";
+      String[] listWords = word.split(punc);
+      for(String wrd : listWords)
+      {
+        noPunc += wrd;
+      }
+      word = noPunc;
     }
-    word = noPunc;
   }
-  word.toLowerCase();
-//too many words stringed together
+  word = word.toLowerCase();
   if (reverse(word).equals(word)) 
     return true;
   return false;
